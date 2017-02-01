@@ -14,11 +14,16 @@
 ==========================-->
 
 	<!-- page_center class with media queries -->
-	<link rel="stylesheet" href="css/header.css">
+	  <link rel="stylesheet" href="css/header.css">
   	<link rel="stylesheet" href="css/kainos.css">
+    <link rel="stylesheet" href="css/slideshow.css">
 	<!-- end -->
 
-
+<style>
+  a{
+    cursor:pointer;
+  }
+</style>
 	
 </head>
 <body>
@@ -40,7 +45,25 @@
 	<!--===============================
 	=            slideshow            =
 	================================-->
-	 
+   <div id="slide-show-block">
+
+      <div class="slide">
+        <img src="images/foto1.jpg" alt="foto">
+        <div class="caption">Text1</div>
+      </div>
+
+       <!--<div class="slide">
+        <img src="images/foto2.png" alt="foto">
+        <div class="caption">Text2</div>
+      </div>-->
+      <a id="control-left">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a id="control-right">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+   </div>
+
 <!--====  End of Slideshow  ====-->
 
 	
@@ -50,5 +73,6 @@
 		=            JS            =
 		=========================-->
 	<!-- NEPABAIGTAS! -->	
+  <script type="text/javascript" src="js/slideshow.js"></script>
 	<script type="text/javascript" src="js/meniuResponsive.js"></script>
 </html>

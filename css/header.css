@@ -48,13 +48,13 @@ body{
 	font-weight: 400;
 	margin-right: 25px;
 }
-a:hover{
+#meniu li a:hover{
 	transition-duration: 0.5s;
 	text-decoration: none;
 	color: #5AADDD;
 	cursor:pointer;
 }
-a{
+#meniu li a{
 	text-decoration: none !important;
 	transition-duration: 0.5s;
 	color: black;
