@@ -16,7 +16,7 @@ var autoOffDelay = 10;//in seconds
 */
 function initBullets(){
     var bullet = bulletPoints[0];
-    for(var i = 1;i<=slides.length;i++)
+    for(var i = 1;i<slides.length;i++)
     {
         var cloneBullet = $(bullet).clone();
         $(cloneBullet).attr("name", i);
@@ -38,6 +38,18 @@ $(bulletPoints).click(function(){
         }
     }  
 });
+/*
+center bullet points
+*/
+var Ww = 0;
+var bulletPointsWidth = 0;
+$(window).ready(function(){
+    Ww = window.innerWidth;
+    bulletPointsWidth = ((bulletPoints[0].offsetWidth)*bulletPoints.length)+(5*bulletPoints.length);
+    $(bulletPointsBlock).css("width",bulletPointsWidth);
+});
+
+
 
 
 /*
@@ -155,6 +167,10 @@ function autoSlideShowStop(){
     // for(var i = 0; i <timeout;i++)
     // clearTimeout(i);
 }
+
+/*
+    
+*/
 
 /*
     Wait function in miliseconds (no need)

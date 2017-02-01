@@ -66,10 +66,11 @@ controls
 /*bullet points*/
 
 #bullet-points{
-    position: absolute;
-    left:45%;
-    width:50%;
-    top:575px;
+   
+top:575px;
+margin: auto;
+position: absolute;
+left: 0; bottom: 0; right: 0;
 
 }
 #bullet-points a div{
