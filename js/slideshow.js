@@ -62,7 +62,7 @@ var controls = document.getElementsByClassName("controls");
 var currSlide;
 $(controls).click(function(){
     //stop slideshow when arrows are clicked
-    automaticSlideShowStop();
+    autoSlideShowStop();
     //
     if($(this).is($(prev))){
         // show previous slide
@@ -86,7 +86,7 @@ function getSlide(){
 
 function changeSlideNext(currSlide){
     //
-  
+  console.log("nextSlide");
           currSlide = getSlide();
       $(currSlide).fadeOut(1000,function () {  
         if(currSlide.nextElementSibling.className != "slide"){
@@ -121,38 +121,39 @@ function changeSlidePrev(currSlide){
 /*
 AUTOMATIC slide show
 */
-var clear;
+var timeInt;
 function automaticSlideShow(){  
-if(!startAuto)
-    return;
-
-clear = setTimeout(function(){ 
-    //
+    if(timeInt)
+        clearInterval(timeInt);
+    
     if(!startAuto)
-    return;
-    changeSlideNext();
-    clearTimeout(clear);
-    automaticSlideShow();
-    //
-    },slideShowSpeed*1000);
+        return;
+
+    timeInt = setInterval(function(){
+        changeSlideNext();
+},slideShowSpeed*1000);
 
 }
 automaticSlideShow();
 
-
+setInterval(function () { console.log(startAuto);  },500);
 //stop slide show
-function automaticSlideShowStop(){
-    if(!startAuto)
-        clearTimeout(x);
-    startAuto = false;
-    clearTimeout(clear);
-  var x =  setTimeout(function () { 
-
-        startAuto = true; 
-        automaticSlideShow();
-
+var timeout;
+function autoSlideShowStop(){
+   startAuto = false;
+   automaticSlideShow();
+    //clearTimeout(timeout);
+    if(timeout)
+    clearInterval(timeout);
+     
+   timeout = setTimeout(function () { 
+    startAuto = true;
+    automaticSlideShow()
     },autoOffDelay*1000);
+     
     
+    // for(var i = 0; i <timeout;i++)
+    // clearTimeout(i);
 }
 
 /*
