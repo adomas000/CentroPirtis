@@ -65,6 +65,8 @@ function initFirstSlide() {
     }
     if(slides[0]){
         $(slides[0]).fadeIn();
+        currSlide = getSlide();
+        changeBulletPoint();
     }   
   }
 initFirstSlide();
@@ -79,7 +81,7 @@ var currSlide;
 $(controls).click(function(){
     //stop slideshow when arrows are clicked
     autoSlideShowStop();
-    changeBulletPoint();
+    
     //
     if($(this).is($(prev))){
         // show previous slide
@@ -113,6 +115,7 @@ function changeSlideNext(currSlide){
             $(currSlide).fadeIn("slow");
         }else{
             $(currSlide.nextElementSibling).fadeIn("slow");
+            changeBulletPoint();
         }
 
      });
@@ -131,6 +134,7 @@ function changeSlidePrev(currSlide){
             $(currSlide).fadeIn("slow");
         }else{
             $(currSlide.previousElementSibling).fadeIn("slow");
+            changeBulletPoint();
         }
 
      });
@@ -149,7 +153,7 @@ function automaticSlideShow(){
 
     timeInt = setInterval(function(){
         changeSlideNext();
-        changeBulletPoint();
+        
         
 },slideShowSpeed*1000);
 
