@@ -14,6 +14,9 @@ var autoOffDelay = 10;//in seconds
 /*
     controlling bullet points
 */
+//giving every slide a name
+for(var i = 0;i<slides.length;i++)
+    $(slides[i]).attr("name",i);
 function initBullets(){
     var bullet = bulletPoints[0];
     for(var i = 1;i<slides.length;i++)
@@ -25,8 +28,9 @@ function initBullets(){
 }
 initBullets();
 
-$(bulletPoints).click(function(){
+$(bulletPoints).click(function(e){
 
+    changeSlideOnBulletPress(e.currentTarget);
     for(var i = 0;i<bulletPoints.length;i++){
 
         if($(this).is($(bulletPoints[i]))){
@@ -75,6 +79,7 @@ var currSlide;
 $(controls).click(function(){
     //stop slideshow when arrows are clicked
     autoSlideShowStop();
+    changeBulletPoint();
     //
     if($(this).is($(prev))){
         // show previous slide
@@ -98,8 +103,9 @@ function getSlide(){
 
 function changeSlideNext(currSlide){
     //
-  console.log("nextSlide");
+        
           currSlide = getSlide();
+          console.log(currSlide);
       $(currSlide).fadeOut(1000,function () {  
         if(currSlide.nextElementSibling.className != "slide"){
                 
@@ -143,14 +149,16 @@ function automaticSlideShow(){
 
     timeInt = setInterval(function(){
         changeSlideNext();
+        changeBulletPoint();
+        
 },slideShowSpeed*1000);
 
 }
 automaticSlideShow();
 
-setInterval(function () { console.log(startAuto);  },500);
 //stop slide show
 var timeout;
+//
 function autoSlideShowStop(){
    startAuto = false;
    automaticSlideShow();
@@ -160,7 +168,8 @@ function autoSlideShowStop(){
      
    timeout = setTimeout(function () { 
     startAuto = true;
-    automaticSlideShow()
+    automaticSlideShow();
+    changeBulletPoint();
     },autoOffDelay*1000);
      
     
@@ -169,8 +178,35 @@ function autoSlideShowStop(){
 }
 
 /*
-    
+    bullet point functionality
 */
+function changeBulletPoint(){
+    
+    var currSlide = getSlide();
+    
+     for(var i = 0;i<bulletPoints.length;i++){       
+        if($(bulletPoints[i]).attr("name") == $(currSlide).attr("name")){
+            if(!$(bulletPoints[i]).hasClass("selected-point"))
+                     $(bulletPoints[i]).addClass("selected-point"); 
+                     console.log("changed bullet when currSlide: ", currSlide, "and bullet point is: ",bulletPoints[i] );
+        }
+        else{
+            $(bulletPoints[i]).removeClass();
+        }
+    }  
+}
+changeBulletPoint();
+
+ function changeSlideOnBulletPress(currBullet){
+        autoSlideShowStop();
+        currSlide = getSlide();
+      $(currSlide).fadeOut(1000,function () {  
+            $(slides[$(currBullet).attr("name")]).fadeIn("slow");
+        
+
+     });
+ }
+
 
 /*
     Wait function in miliseconds (no need)

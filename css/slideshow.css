@@ -8,6 +8,7 @@
     
     display: inline-block;
     width:100%;
+   
     
 }
 .slide img{
@@ -15,6 +16,7 @@
    
     object-fit: cover;
     vertical-align: baseline;
+     
     
 }
 
