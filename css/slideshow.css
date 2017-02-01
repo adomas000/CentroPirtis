@@ -25,6 +25,9 @@
     z-index: 20;
 
 }
+/*
+so image could stop shrinking
+*/
 @media only screen and (max-width:1100px){
     .slide img{
     
@@ -33,9 +36,11 @@
     
     min-height: 600px;
     
+    
     }
     .slide{
     min-height:600px; 
+    
     align-content: center;
     }
 }
@@ -44,13 +49,40 @@ controls
 */
 #control-left{
     position: absolute;
-    top:50%;
+    top:300px;
+    left:10px;
     
 }
 #control-right{
      position: absolute;
+     top:300px;
+     right:10px;
+}
+.controls{
+    font-size: 24px;
+    color:lightslategray;
 }
 
-a span{
-    color:black;
+/*bullet points*/
+
+#bullet-points{
+    position: absolute;
+    left:45%;
+    width:50%;
+    top:575px;
+
+}
+#bullet-points a div{
+    height:8px;
+    width:8px;
+    border:1px solid black;
+    border-radius: 25px;
+    
+}
+#bullet-points a{
+    display: inline-block;
+}
+
+.selected-point div{
+    background-color:black;
 }
