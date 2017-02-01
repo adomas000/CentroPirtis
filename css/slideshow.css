@@ -86,3 +86,12 @@ controls
 .selected-point div{
     background-color:black;
 }
+/*
+    slide effects
+*/
+.show_slide{
+    display: block;
+}
+.hide_slide{
+    display: none;
+}
