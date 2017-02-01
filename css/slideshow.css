@@ -79,8 +79,13 @@ controls
     border-radius: 25px;
     
 }
-#bullet-points a{
+#bullet-points a:not(:nth-child(1)){
     display: inline-block;
+    margin-left:4px;
+}
+#bullet-points a:nth-child(1){
+     display: inline-block;
+    margin-right:-3px;
 }
 
 .selected-point div{

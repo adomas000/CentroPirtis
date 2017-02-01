@@ -3,10 +3,28 @@
 */
 var bulletPointsBlock = document.getElementById("bullet-points");
 var bulletPoints = bulletPointsBlock.children;
+/*
+declaring variables for slideshow functionality
+*/
+var slides = document.getElementsByClassName("slide");
+var startAuto = true;
+var slideShowSpeed = 6; //in seconds
+var autoOffDelay = 10;//in seconds
 
 /*
     controlling bullet points
 */
+function initBullets(){
+    var bullet = bulletPoints[0];
+    for(var i = 1;i<=slides.length;i++)
+    {
+        var cloneBullet = $(bullet).clone();
+        $(cloneBullet).attr("name", i);
+        $(bulletPointsBlock).append($(cloneBullet));
+    }
+}
+initBullets();
+
 $(bulletPoints).click(function(){
 
     for(var i = 0;i<bulletPoints.length;i++){
@@ -21,15 +39,11 @@ $(bulletPoints).click(function(){
     }  
 });
 
-/*
-declaring variables for slideshow functionality
-*/
-var slides = document.getElementsByClassName("slide");
 
 /*
 showing first slide and hiding the others 
 */
-function init() {
+function initFirstSlide() {
     for(var i=0;i<slides.length;i++){   
         $(slides[i]).hide();    
     }
@@ -37,7 +51,7 @@ function init() {
         $(slides[0]).fadeIn();
     }   
   }
-init();
+initFirstSlide();
 
 /*
     next/prev slide controls
@@ -45,10 +59,10 @@ init();
 var prev = document.getElementById("control-left");
 var next = document.getElementById("control-right");
 var controls = document.getElementsByClassName("controls");
-
+var currSlide;
 $(controls).click(function(){
-    //get current showing slide
-    var currSlide = getSlide();
+    //stop slideshow when arrows are clicked
+    automaticSlideShowStop();
     //
     if($(this).is($(prev))){
         // show previous slide
@@ -59,7 +73,9 @@ $(controls).click(function(){
       changeSlideNext(currSlide);
   }
 });
-
+/*
+as it says, gets current slide
+*/
 function getSlide(){
     for(var i = 0; i<slides.length;i++){
         if($(slides[i]).css("display")!="none"){
@@ -69,7 +85,9 @@ function getSlide(){
 }
 
 function changeSlideNext(currSlide){
-      
+    //
+  
+          currSlide = getSlide();
       $(currSlide).fadeOut(1000,function () {  
         if(currSlide.nextElementSibling.className != "slide"){
                 
@@ -81,8 +99,13 @@ function changeSlideNext(currSlide){
 
      });
 }
+//testing
+
+//
 function changeSlidePrev(currSlide){
-      
+        
+       
+        currSlide = getSlide();
      $(currSlide).fadeOut(1000,function () {  
         if( !currSlide.previousElementSibling||currSlide.previousElementSibling.className != "slide"){
                 
@@ -93,6 +116,43 @@ function changeSlidePrev(currSlide){
         }
 
      });
+}
+
+/*
+AUTOMATIC slide show
+*/
+var clear;
+function automaticSlideShow(){  
+if(!startAuto)
+    return;
+
+clear = setTimeout(function(){ 
+    //
+    if(!startAuto)
+    return;
+    changeSlideNext();
+    clearTimeout(clear);
+    automaticSlideShow();
+    //
+    },slideShowSpeed*1000);
+
+}
+automaticSlideShow();
+
+
+//stop slide show
+function automaticSlideShowStop(){
+    if(!startAuto)
+        clearTimeout(x);
+    startAuto = false;
+    clearTimeout(clear);
+  var x =  setTimeout(function () { 
+
+        startAuto = true; 
+        automaticSlideShow();
+
+    },autoOffDelay*1000);
+    
 }
 
 /*
