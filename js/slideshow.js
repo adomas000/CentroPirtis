@@ -194,7 +194,7 @@ function changeBulletPoint(){
         if($(bulletPoints[i]).attr("name") == $(currSlide).attr("name")){
             if(!$(bulletPoints[i]).hasClass("selected-point"))
                      $(bulletPoints[i]).addClass("selected-point"); 
-                     console.log("changed bullet when currSlide: ", currSlide, "and bullet point is: ",bulletPoints[i] );
+                    
         }
         else{
             $(bulletPoints[i]).removeClass();

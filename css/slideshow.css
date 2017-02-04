@@ -22,7 +22,7 @@
 
 .caption{
     position: absolute;
-    top:30%;
+    top:300px;
     left:15%;
     color:white;
     z-index: 20;
@@ -50,7 +50,6 @@ so image could stop shrinking
     .slide img{
     
     vertical-align: baseline;
-    position: fixed;
     
     min-height: 600px;
     
@@ -82,16 +81,21 @@ controls
 .controls{
     font-size: 24px;
     color:white;
+    letter-spacing: 1px;
+}
+.controls:hover{
+    color:lightgrey;
 }
 
 /*bullet points*/
 
 #bullet-points{
    
-top:575px;
-margin: auto;
+top:570px;
+margin:0 auto;
 position: absolute;
 left: 0; bottom: 0; right: 0;
+height:40px;
 
 }
 #bullet-points a div{
