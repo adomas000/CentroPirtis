@@ -113,6 +113,7 @@ function changeSlideNext(currSlide){
                 
             currSlide = slides[0];
             $(currSlide).fadeIn("slow");
+            changeBulletPoint();
         }else{
             $(currSlide.nextElementSibling).fadeIn("slow");
             changeBulletPoint();
@@ -132,6 +133,7 @@ function changeSlidePrev(currSlide){
                 
             currSlide = slides[slides.length-1];
             $(currSlide).fadeIn("slow");
+            changeBulletPoint();
         }else{
             $(currSlide.previousElementSibling).fadeIn("slow");
             changeBulletPoint();

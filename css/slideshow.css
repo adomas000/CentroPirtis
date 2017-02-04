@@ -1,3 +1,4 @@
+
 #slide-show-block
 {
     height:600px!important;
@@ -13,7 +14,6 @@
 }
 .slide img{
     width:100%;
-   
     object-fit: cover;
     vertical-align: baseline;
      
@@ -22,10 +22,26 @@
 
 .caption{
     position: absolute;
-    margin-top:0px;
-    color:red;
+    top:30%;
+    left:15%;
+    color:white;
     z-index: 20;
+    font-family: 'Open Sans', serif;
+    font-size: 60px;
+    width: 60%;
+    
+    
 
+}
+@media only screen and (min-width:1800px){
+    .slide img{
+        width:100%;
+        object-fit: cover;
+        vertical-align: baseline;
+        margin-top: -250px;
+     
+    
+    }
 }
 /*
 so image could stop shrinking
@@ -45,6 +61,9 @@ so image could stop shrinking
     
     align-content: center;
     }
+    .caption{
+        font-size: 40px;
+    }
 }
 /*
 controls
@@ -62,7 +81,7 @@ controls
 }
 .controls{
     font-size: 24px;
-    color:lightslategray;
+    color:white;
 }
 
 /*bullet points*/
