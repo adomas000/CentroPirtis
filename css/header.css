@@ -13,7 +13,7 @@ body{
 	height:80px;
 	width:100%;
 	background-color: white;
-	border-bottom: 1px solid black;
+	
 	position: fixed;
 	z-index: 10;
 }
@@ -21,7 +21,7 @@ body{
 @media screen and (min-width: 1185px){
 	.page_center{
 	width: 1185px;
-
+	
 	}
 }
 @media screen and (max-width: 1184px){
