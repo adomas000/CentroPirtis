@@ -107,7 +107,7 @@ function changeSlideNext(currSlide){
     //
         
           currSlide = getSlide();
-          console.log(currSlide);
+          
       $(currSlide).fadeOut(1000,function () {  
         if(currSlide.nextElementSibling.className != "slide"){
                 

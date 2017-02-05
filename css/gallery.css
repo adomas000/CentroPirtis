@@ -1,0 +1,74 @@
+/*aprasymas*/
+#aprasymas div h1{
+    text-align: center;
+    font-weight: 700;
+}
+#aprasymas div p{
+    text-align: center;
+    font-size: 16px;
+        color: #333
+}
+#aprasymas{
+    clear:both;
+    overflow: hidden;
+}
+#aprasymo-cont{
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+
+/*end of aprasymas*/
+
+/*gallery css*/
+.gallery-row div img{
+   max-width: 100%;
+   min-width: 100%;
+
+}
+.gallery-row div{
+    overflow:hidden;
+    margin-top: 25px;
+}
+.gallery-cont{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.img-prev{
+    transition-duration: 0.5s;
+}
+
+.overlay{   
+    transition-duration: 1s;
+    display: none;
+    position: absolute;
+    width:95%;
+    height:100%;
+    top:-25px;
+    left:15px;
+    z-index: 10;
+}
+
+.img-prev:hover > .overlay{
+    display: block;
+    animation-duration: 1s;
+    animation-name: scalingIn;
+    background-color: rgba(0,0,0,0.8);
+}
+
+@keyframes scalingIn{
+    from{
+        transform: scale(0);
+    }
+    to{
+         transform: scale(1);
+    }
+}
+@keyframes scalingOut{
+    from{
+        transform: scale(1);
+    }
+    to{
+         transform: scale(0);
+    }
+}
