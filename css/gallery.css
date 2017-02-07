@@ -34,26 +34,59 @@
     padding-left: 25px;
     padding-right: 25px;
 }
-.img-prev{
-    transition-duration: 0.5s;
-}
 
 .overlay{   
     transition-duration: 1s;
     display: none;
     position: absolute;
-    width:95%;
+    width:94%;
     height:100%;
     top:-25px;
-    left:15px;
-    z-index: 10;
+    
+    z-index: 1;
 }
 
 .img-prev:hover > .overlay{
     display: block;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-name: scalingIn;
+    animation-timing-function: ease-in-out;
     background-color: rgba(0,0,0,0.8);
+}
+
+.img-prev:hover .overlay span{
+    opacity:0;
+    color:white;  
+    top:40%;
+    width:40px;
+    margin:0 auto;
+    position: absolute;
+    left: 0; bottom: 0; right: 0;
+    font-size: 34px;
+    animation-delay: 0.5s;
+    animation-name: icon;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+
+}
+
+
+#imgPlaceholder img{
+ max-width: 100%;
+}
+
+@keyframes icon{
+    from{
+        
+        opacity: 0;
+        display: none;
+    }
+    to{
+        display:block;
+        opacity: 1;
+        cursor:pointer;
+    }
 }
 
 @keyframes scalingIn{
