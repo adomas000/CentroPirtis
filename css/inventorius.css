@@ -59,9 +59,15 @@
         margin-top: 80px;
     }
     .inv-card{
-        width: auto;
+        width: 90%;
         height: auto;
-        margin-right:25px;
+        
+        
+               
     }
+    .inv{
+        margin: 0 auto;
+    }
+    
    
 }

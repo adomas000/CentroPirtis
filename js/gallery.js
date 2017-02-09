@@ -20,11 +20,12 @@ function ImgOverlayWidthCorrection(){
 }
 
 $(".previewModal").click(function(){
+    
     var getImg = $(this).parents(".img-prev").children("img");
     if($("#imgPlaceholder").has("img"))
     {
         $("#imgPlaceholder").children("img").remove();
     }
     $("#imgPlaceholder").append($(getImg).clone());
-});
     
+});
