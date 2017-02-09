@@ -59,9 +59,22 @@
         margin-top: 80px;
     }
     .inv-card{
+<<<<<<< HEAD
         width: auto;
         height: auto;
         margin-right:25px;
     }
+=======
+        width: 90%;
+        height: auto;
+        
+        
+               
+    }
+    .inv{
+        margin: 0 auto;
+    }
+    
+>>>>>>> development
    
 }

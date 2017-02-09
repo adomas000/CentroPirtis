@@ -1,0 +1,107 @@
+/*aprasymas*/
+#aprasymas div h1{
+    text-align: center;
+    font-weight: 700;
+}
+#aprasymas div p{
+    text-align: center;
+    font-size: 16px;
+        color: #333
+}
+#aprasymas{
+    clear:both;
+    overflow: hidden;
+}
+#aprasymo-cont{
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+
+/*end of aprasymas*/
+
+/*gallery css*/
+.gallery-row div img{
+   max-width: 100%;
+   min-width: 100%;
+
+}
+.gallery-row div{
+    overflow:hidden;
+    margin-top: 25px;
+}
+.gallery-cont{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.overlay{   
+    transition-duration: 1s;
+    display: none;
+    position: absolute;
+    width:94%;
+    height:100%;
+    top:-25px;
+    
+    z-index: 1;
+}
+
+.img-prev:hover > .overlay{
+    display: block;
+    animation-duration: 0.5s;
+    animation-name: scalingIn;
+    animation-timing-function: ease-in-out;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.img-prev:hover .overlay span{
+    opacity:0;
+    color:white;  
+    top:40%;
+    width:40px;
+    margin:0 auto;
+    position: absolute;
+    left: 0; bottom: 0; right: 0;
+    font-size: 34px;
+    animation-delay: 0.5s;
+    animation-name: icon;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+
+}
+
+
+#imgPlaceholder img{
+ max-width: 100%;
+}
+
+@keyframes icon{
+    from{
+        
+        opacity: 0;
+        display: none;
+    }
+    to{
+        display:block;
+        opacity: 1;
+        cursor:pointer;
+    }
+}
+
+@keyframes scalingIn{
+    from{
+        transform: scale(0);
+    }
+    to{
+         transform: scale(1);
+    }
+}
+@keyframes scalingOut{
+    from{
+        transform: scale(1);
+    }
+    to{
+         transform: scale(0);
+    }
+}
