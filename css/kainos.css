@@ -1,6 +1,6 @@
 .kain-panel{
     display: inline-block;
-    
+   
     
 }
 
@@ -58,9 +58,18 @@
 
 min-height: 30px;
   max-height: 30px;
+  overflow: hidden;
     
 }
-
+.panel-heading{
+    
+    overflow: hidden;
+}
+.panel-heading h1{
+    
+    overflow: hidden;
+    
+}
 .panel-body table tr td:nth-child(even){
     
     margin-right:25px;
@@ -71,11 +80,19 @@ min-height: 30px;
 }
 
 .shadow{
+     transition: 1s;
 -webkit-box-shadow: -1px 10px 19px -6px rgba(0,0,0,0.68);
 -moz-box-shadow: -1px 10px 19px -6px rgba(0,0,0,0.68);
 box-shadow: -1px 10px 19px -6px rgba(0,0,0,0.68);
 
+ border-radius: 0;
 
+
+}
+.shadow:hover {
+     transition: 1s;
+     transition-timing-function: ease-in-out;
+     transform: translateY(-20px);
 }
 .shadow:nth-child(2){
     
